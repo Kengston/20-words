@@ -1,5 +1,5 @@
 import React from 'react';
-
+import '@fortawesome/fontawesome-free/css/all.css';
 import AppHeader from '../app-header';
 import SearchPanel from '../search-panel';
 import PostStatusFilter from '../post-status-filter';
