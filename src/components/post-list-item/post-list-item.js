@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 
 import './post-list-item.css';
 
@@ -10,12 +10,12 @@ const PostListItem = () => {
             </span>
             <div className="d-flex justify-content-center align-items-center">
                 <button className="btn-star btn-sm">
-                    <i className="fas fa-star"></i>
+                    <i className="fas fa-star" />
                 </button>
                 <button className="btn-trash btn-sm">
-                    <i className="fas fa-trash-alt"></i>
+                    <i className="fas fa-trash-alt" />
                 </button>
-                <i className="fas fa-heart"></i>
+                <i className="fas fa-heart" />
             </div>
         </li>
     )

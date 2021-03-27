@@ -17,4 +17,5 @@ const PostAddForm = () => {
         </form>
     )
 }
+
 export default PostAddForm
