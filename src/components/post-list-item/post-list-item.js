@@ -1,31 +1,56 @@
 import React, {Component, useState} from 'react';
-import ReactDOM from 'react-dom'
 import './post-list-item.css';
 
-const PostListItem = (props) => {
+export default class PostListItem extends Component {
 
-        let [marked, setStar] = useState(true)
-
-        const markPost = () => {
-            setStar(true)
+    constructor(props) {
+        super(props);
+        this.state = {
+            marked: false,
+            like: false
         }
+        this.markPost = this.markPost.bind(this)
+        this.likePost = this.likePost.bind(this)
+    }
 
-        const unmarkPost = () => {
-            setStar(false)
+    markPost() {
+        this.setState(({marked}) => ({
+            marked: !marked
+        }))
+    }
+
+    likePost() {
+        this.setState(({like}) => ({
+            like: !like
+        }))
+    }
+
+
+
+    render() {
+        const {label} = this.props
+        const {marked, like} = this.state
+
+        let classNames = 'app-list-item d-flex justify-content-between'
+
+        if (like) {
+            classNames += 'like'
         }
 
         return (
-            <li className="app-list-item d-flex justify-content-between">
-                <span className="app-list-item-label">
-                    Hello World
+            <div className={classNames}>
+
+                <span className="app-list-item-label" onClick={this.likePost}>
+                    {label}
                 </span>
+
                 <div className="d-flex justify-content-center align-items-center">
                     {marked ?
-                        <button className="btn-star btn-sm" onClick={markPost}>
+                        <button className="btn-star btn-sm" onClick={this.markPost} >
                             <i className="far fa-star" />
                         </button>
                         :
-                        <button className="btn-star btn-sm" onClick={unmarkPost}>
+                        <button className="btn-star btn-sm" onClick={this.markPost}>
                             <i className="fas fa-star"/>
                         </button>
                     }
@@ -34,8 +59,10 @@ const PostListItem = (props) => {
                     </button>
                     <i className="fas fa-heart" />
                 </div>
-            </li>
+            </div>
         )
+    }
 }
 
-export default PostListItem;
+
+
