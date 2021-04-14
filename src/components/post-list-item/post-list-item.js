@@ -25,8 +25,6 @@ export default class PostListItem extends Component {
         }))
     }
 
-
-
     render() {
         const {label} = this.props
         const {marked, like} = this.state
@@ -34,7 +32,7 @@ export default class PostListItem extends Component {
         let classNames = 'app-list-item d-flex justify-content-between'
 
         if (like) {
-            classNames += 'like'
+            classNames += ' like'
         }
 
         return (
