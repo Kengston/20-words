@@ -3,52 +3,29 @@ import './post-list-item.css';
 
 export default class PostListItem extends Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            marked: false,
-            like: false
-        }
-        this.markPost = this.markPost.bind(this)
-        this.likePost = this.likePost.bind(this)
-    }
-
-    markPost() {
-        this.setState(({marked}) => ({
-            marked: !marked
-        }))
-    }
-
-    likePost() {
-        this.setState(({like}) => ({
-            like: !like
-        }))
-    }
-
     render() {
-        const {label, onDelete} = this.props
-        const {marked, like} = this.state
+        const {label, onDelete, onToggleImportant, onToggleLiked, like, important} = this.props
 
         let classNames = 'app-list-item d-flex justify-content-between'
 
         if (like) {
-            classNames += ' like'
+            classNames +=' like';
         }
 
         return (
             <div className={classNames}>
 
-                <span className="app-list-item-label" onClick={this.likePost}>
+                <span className="app-list-item-label" onClick={onToggleLiked}>
                     {label}
                 </span>
 
                 <div className="d-flex justify-content-center align-items-center">
-                    {marked ?
-                        <button className="btn-star btn-sm" onClick={this.markPost} >
+                    {important ?
+                        <button className="btn-star btn-sm" onClick={onToggleImportant} >
                             <i className="fas fa-star " />
                         </button>
                         :
-                        <button className="btn-star btn-sm" onClick={this.markPost}>
+                        <button className="btn-star btn-sm" onClick={onToggleImportant}>
                             <i className="far fa-star"/>
                         </button>
                     }
