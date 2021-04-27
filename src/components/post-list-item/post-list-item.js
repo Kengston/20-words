@@ -45,11 +45,11 @@ export default class PostListItem extends Component {
                 <div className="d-flex justify-content-center align-items-center">
                     {marked ?
                         <button className="btn-star btn-sm" onClick={this.markPost} >
-                            <i className="far fa-star" />
+                            <i className="fas fa-star " />
                         </button>
                         :
                         <button className="btn-star btn-sm" onClick={this.markPost}>
-                            <i className="fas fa-star"/>
+                            <i className="far fa-star"/>
                         </button>
                     }
                     <button className="btn-trash btn-sm"
